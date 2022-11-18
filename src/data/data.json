@@ -1,0 +1,25 @@
+{
+  "title": "Krachbau",
+  "subtitle": "Musicians of Berlin",
+  "description": "Interviews with Berlin-based underground musicians about their creative process and the city around them.",
+  "authors": [
+    "Andrey Brot"
+  ],
+  "type": "episodic",
+  "category": "Music",
+  "subcategory": "Music Interviews",
+  "explicit": true,
+  "language": "en",
+  "owner": {
+    "name": "Pedal Markt",
+    "email": "hey@pedalmarkt.com"
+  },
+  "copyright": "СС BY-NC-ND 4.0",
+  "paths": {
+    "page": "https://krachbau.com/",
+    "cover": "https://krachbau.com/cover.png",
+    "feed": "https://krachbau.com/feed/",
+    "audio": "https://krachbau.com/episodes/",
+    "file": "src/mp3/"
+  }
+}

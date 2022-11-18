@@ -1,0 +1,108 @@
+---
+permalink: index.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+
+  <title>{{ data.title }}</title>
+  <description>{{ data.description }}</description>
+  <copyright>{{ data.copyright }}</copyright>
+  <language>{{ data.language }}</language>
+  <link>{{ data.paths.page }}</link>
+
+  <atom:link href="{{ data.paths.feed }}" rel="self" type="application/rss+xml"/>
+
+  <itunes:subtitle>{{ data.subtitle }}</itunes:subtitle>
+  <itunes:type>{{ data.type }}</itunes:type>
+  <itunes:author>
+  {%- for author in data.authors -%}
+    {{ author }}{% if not loop.last %}, {% endif %}
+  {%- endfor -%}
+  </itunes:author>
+  <itunes:explicit>{{ data.explicit }}</itunes:explicit>
+  <itunes:owner>
+    <itunes:name>{{ data.owner.name }}</itunes:name>
+    <itunes:email>{{ data.owner.email }}</itunes:email>
+  </itunes:owner>
+  <itunes:image href="{{ data.paths.cover }}"/>
+  <itunes:category text="{{ data.category }}">
+    <itunes:category text="{{ data.subcategory }}"/>
+  </itunes:category>
+
+{%- for episode in collections.episode | reverse -%}
+
+  {% set date = episode.date | enDate %}
+  {% set links %}
+    <p>
+      Hosted by Andrey Brot, recorded at Pedal Markt in Berlin.
+      Find all the episodes at
+      <a href="{{ links.krachbau.web }}">{{ links.krachbau.web }}</a>.
+      Find Pedal Markt at
+      <a href="{{ links.pedalmarkt.web }}">{{ links.pedalmarkt.web }}</a> and
+      <a href="{{ links.pedalmarkt.insta }}">on Instagram</a>.
+    </p>
+  {% endset %}
+
+  {% set episodeDescription %}
+    {% if episode.data.guests.length === 1 %}
+    <h2>Guest</h2>
+    {% endif %}
+    {% if episode.data.guests.length > 1 %}
+    <h2>Guests</h2>
+    {% endif %}
+    {% if episode.data.guests.length >= 1 %}
+    <ul>
+      {%- for guest in episode.data.guests -%}
+        <li>{{ guest }}</li>
+      {%- endfor -%}
+    </ul>
+    {% endif %}
+
+    <h2>Chapters</h2>
+    {% if episode.data.chapters %}
+      <ul>
+        {%- for chapter in episode.data.chapters -%}
+          <li>{{ chapter.time }} {{ chapter.title }}</li>
+        {%- endfor -%}
+      </ul>
+    {% endif %}
+    {{ episode.templateContent | safe }}
+    {# {{ links | safe }} #}
+  {% endset %}
+
+  {% set episodeSummary %}
+    Interview with {{ episode.data.title }}. Released {{ date }}.
+  {% endset %}
+
+  {% set fileUrl %}
+    {{ data.paths.audio }}{{ episode.fileSlug }}.mp3
+  {% endset %}
+  {% set filePath %}
+    {{ data.paths.file }}{{ episode.fileSlug }}.mp3
+  {% endset %}
+
+  <item>
+    <title>{{ episode.data.title | escape }}</title>
+    <link>{{ data.paths.page }}{{ episode.fileSlug }}/</link>
+    <pubDate>{{ episode.date.toUTCString() }}</pubDate>
+    <description><![CDATA[{{ episodeDescription | htmlmin | safe }}]]></description>
+    <guid isPermaLink="true">{{ fileUrl | trim }}</guid>
+    <enclosure type="audio/mpeg" url="{{ fileUrl | trim }}" length="{{ filePath | trim | length }}"/>
+
+    <itunes:season>{{ episode.data.season }}</itunes:season>
+    <itunes:episode>{{ episode.data.episode }}</itunes:episode>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:duration>{{ filePath | trim | duration }}</itunes:duration>
+    <itunes:author>{{ data.authors | join(', ') }}</itunes:author>
+    <itunes:explicit>{{ data.explicit }}</itunes:explicit>
+    <itunes:summary>{{ episodeSummary | trim }}</itunes:summary>
+    {% if episode.data.cover %}
+    <itunes:image href="{{ data.paths.page }}{{ episode.fileSlug }}/{{ episode.data.cover }}"/>
+    {% endif %}
+  </item>
+
+{%- endfor -%}
+
+</channel>
+</rss>

@@ -1,0 +1,19 @@
+{
+  "name": "krachbau.com",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.0-canary.16",
+    "html-minifier": "^4.0.0",
+    "markdown-it": "^13.0.1",
+    "music-metadata": "^8.1.0",
+    "pretty-data": "^0.40.0"
+  }
+}
