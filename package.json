@@ -4,7 +4,10 @@
   "description": "",
   "scripts": {
     "build": "eleventy",
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "mp3": "cd src/mp3 && rsync --archive --compress --progress  --delete --delete-excluded --exclude .DS_Store . krachbau@krachbau.com:krachbau.com/audio/",
+    "site": "cd dist && rsync --archive --compress --exclude audio . krachbau@krachbau.com:krachbau.com/",
+    "deploy": "npm run site && npm run mp3"
   },
   "keywords": [],
   "author": "",

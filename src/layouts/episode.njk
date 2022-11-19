@@ -1,0 +1,32 @@
+---
+layout: page.njk
+---
+
+<main class="main">
+  <h1>{{ pageTitle }}</h1>
+  <div class="article__audio">
+  {% set audioUrl %}
+    {{ data.paths.audio }}{{ page.fileSlug }}.mp3
+  {% endset %}
+
+    <audio src="{{ audioUrl | trim }}" controls></audio>
+    <p>
+    <a href="{{ audioUrl | trim }}" download="{{ page.fileSlug }}.mp3">
+      Download episode
+    </a>
+    </p>
+  </div>
+  <div class="article__content">
+    {{ content | safe }}
+  </div>
+  {% if chapters %}
+  <div class="article__chapters">
+    <h2>Chapters</h2>
+      <ul>
+        {%- for chapter in chapters -%}
+          <li>{{ chapter.time }} {{ chapter.title }}</li>
+        {%- endfor -%}
+      </ul>
+  </div>
+  {% endif %}
+</main>

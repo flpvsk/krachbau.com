@@ -1,9 +1,9 @@
 {
   "title": "Krachbau",
-  "subtitle": "Musicians of Berlin",
+  "subtitle": "Listening to the Sounds of Berlin",
   "description": "Interviews with Berlin-based underground musicians about their creative process and the city around them.",
   "authors": [
-    "Andrey Brot"
+    "Pedal Markt"
   ],
   "type": "episodic",
   "category": "Music",
@@ -16,10 +16,11 @@
   },
   "copyright": "СС BY-NC-ND 4.0",
   "paths": {
+    "host": "https://krachbau.com",
     "page": "https://krachbau.com/",
-    "cover": "https://krachbau.com/cover.png",
+    "cover": "https://krachbau.com/images/cover.png",
     "feed": "https://krachbau.com/feed/",
-    "audio": "https://krachbau.com/episodes/",
+    "audio": "https://krachbau.com/audio/",
     "file": "src/mp3/"
   }
 }

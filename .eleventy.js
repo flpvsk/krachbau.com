@@ -5,6 +5,9 @@ const music = import('music-metadata');
 const prettydata = require('pretty-data');
 
 module.exports = function main(config) {
+  config.addPassthroughCopy('src/images');
+  config.addPassthroughCopy('src/{episodes}/**/*.!(md)');
+
   config.addFilter('length', (path) => {
     const stats = fs.statSync(path);
     return stats.size;
@@ -60,11 +63,12 @@ module.exports = function main(config) {
       input: 'src',
       output: 'dist',
       includes: 'includes',
+      layouts: 'layouts',
       data: 'data'
     },
     dataTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
-    htmlTemplateEngine: 'njk'
+    htmlTemplateEngine: 'njk',
   };
 };
 

@@ -1,12 +1,14 @@
 ---
 date: 2022-11-21
 title: 'Nate from soastasphrenas [emoviolence/screamo/punk]'
+pageTitle: 'Interview with Nate from soastasphrenas [emoviolence/screamo/punk]'
+summary: 'Talking with Nate about structuring songs, writing lyrics,
+squats and occupied spaces in Berlin.'
 language: en
 season: 1
 episode: 1
 guests:
   - Nate from soastasphrenas
-cover: 01-nate-cover.png
 chapters:
   - time: 00:00:00
     title: 'Introduction'

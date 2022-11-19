@@ -1,5 +1,5 @@
 ---
-permalink: index.xml
+permalink: feed/index.xml
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -72,7 +72,7 @@ permalink: index.xml
   {% endset %}
 
   {% set episodeSummary %}
-    Interview with {{ episode.data.title }}. Released {{ date }}.
+    {{ episode.data.summary }}
   {% endset %}
 
   {% set fileUrl %}
@@ -84,7 +84,7 @@ permalink: index.xml
 
   <item>
     <title>{{ episode.data.title | escape }}</title>
-    <link>{{ data.paths.page }}{{ episode.fileSlug }}/</link>
+    <link>{{ data.paths.host }}{{ episode.url }}</link>
     <pubDate>{{ episode.date.toUTCString() }}</pubDate>
     <description><![CDATA[{{ episodeDescription | htmlmin | safe }}]]></description>
     <guid isPermaLink="true">{{ fileUrl | trim }}</guid>
@@ -98,7 +98,7 @@ permalink: index.xml
     <itunes:explicit>{{ data.explicit }}</itunes:explicit>
     <itunes:summary>{{ episodeSummary | trim }}</itunes:summary>
     {% if episode.data.cover %}
-    <itunes:image href="{{ data.paths.page }}{{ episode.fileSlug }}/{{ episode.data.cover }}"/>
+    <itunes:image href="{{ data.paths.host }}{{ episode.url }}{{ episode.data.cover }}"/>
     {% endif %}
   </item>
 
