@@ -1,5 +1,5 @@
 ---
-date: 2022-11-21
+date: 2022-11-20
 title: 'Nate from soastasphrenas [emoviolence/screamo/punk]'
 pageTitle: 'Interview with Nate from soastasphrenas [emoviolence/screamo/punk]'
 summary: 'Talking with Nate about structuring songs, writing lyrics,

@@ -5,10 +5,15 @@ permalink: 'index.html'
 ---
 
 <main class="main">
-<h3>Episodes</h3>
+<a href="/"><h1>{{ data.title }}</h1></a>
+<h2>Episodes</h2>
 <ul>
   {%- for episode in collections.episode | reverse -%}
-    <li><a href="{{ episode.url }}">{{ episode.data.title }}</a></li>
+    <li>
+      <a href="{{ episode.url }}">{{ episode.data.title }} –
+      {{ episode.date | enDate }}
+      </a>
+    </li>
   {%- endfor -%}
 </ul>
 </main>

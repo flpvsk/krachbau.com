@@ -3,7 +3,8 @@ layout: page.njk
 ---
 
 <main class="main">
-  <h1>{{ pageTitle }}</h1>
+  <a href="/"><h1>{{ data.title }}</h1></a>
+  <h2>{{ pageTitle }}</h2>
   <div class="article__audio">
   {% set audioUrl %}
     {{ data.paths.audio }}{{ page.fileSlug }}.mp3
