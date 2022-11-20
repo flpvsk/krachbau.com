@@ -6,6 +6,24 @@ permalink: 'index.html'
 
 <main class="main">
 <a href="/"><h1>{{ data.title }}</h1></a>
+<h2>Links</h2>
+<ul>
+  <li>
+    <a href="/feed/">RSS Feed</a>
+  </li>
+  <li>
+    <a href="https://podcasts.apple.com/us/podcast/krachbau/id1655391580">Apple Podcasts</a>
+  </li>
+  <li>
+    <a href="https://pca.st/62b96qrx">Pocket Casts</a>
+  </li>
+  <li>
+    <a href="https://open.spotify.com/show/41mwqxPH4rKRWL1aLp2M8S">Spotify</a>
+  </li>
+  <li>
+    Google Podcasts (pending verification)
+  </li>
+</ul>
 <h2>Episodes</h2>
 <ul>
   {%- for episode in collections.episode | reverse -%}
