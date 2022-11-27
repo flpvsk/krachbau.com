@@ -36,6 +36,14 @@ html {
   color: var(--color-link);
 }
 
+.page__body a._no-color {
+  color: inherit;
+}
+
+.page__body a._no-color:visited {
+  color: inherit;
+}
+
 .page__body a {
   color: var(--color-link);
 }
