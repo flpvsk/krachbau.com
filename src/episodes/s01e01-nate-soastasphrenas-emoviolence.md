@@ -43,12 +43,12 @@ tags:
   - punk
 ---
 
-## Music on the episode
+### Music on the episode
 
 - First track: [This Is Going To Hurt][track1]
 - Second track: [awake as you rot / asleep as you recover][track2]
 
-## Other links
+### Other links
 
 - Soastasphrenas: [instagram][insta], [bandcamp][bandcamp]
 - [Historical map of Squats in Berlin by year][squats]

@@ -3,26 +3,29 @@ layout: page.njk
 ---
 
 <main class="main">
-  <a href="/"><h1>{{ data.title }}</h1></a>
-  <h2>{{ pageTitle }}</h2>
+  <a class="page__title" href="/"><h1>{{ data.title }}</h1></a>
+  <a title="Go to main page" href="/" class="page__title__logo">
+    <img alt="Krachbau Logo" src="/images/krachbau.svg">
+  </a>
+  <h2 class="page__subtitle_episode">{{ pageTitle }}</h2>
   <div class="article__audio">
   {% set audioUrl %}
     {{ data.paths.audio }}{{ page.fileSlug }}.mp3
   {% endset %}
 
     <audio src="{{ audioUrl | trim }}" controls></audio>
-    <p>
+    <div>
     <a href="{{ audioUrl | trim }}" download="{{ page.fileSlug }}.mp3">
       Download episode
     </a>
-    </p>
+    </div>
   </div>
   <div class="article__content">
     {{ content | safe }}
   </div>
   {% if chapters %}
   <div class="article__chapters">
-    <h2>Chapters</h2>
+    <h3>Chapters</h3>
       <ul>
         {%- for chapter in chapters -%}
           <li>{{ chapter.time }} {{ chapter.title }}</li>
@@ -31,3 +34,26 @@ layout: page.njk
   </div>
   {% endif %}
 </main>
+
+<footer class="footer">
+<h4 class="footer__header">Subscribe to Krachbau:</h4>
+<ul class="footer__links">
+  <li>
+    <a href="/feed/">RSS Feed</a>
+  </li>
+  <li>
+    <a href="https://podcasts.apple.com/us/podcast/krachbau/id1655391580">Apple Podcasts</a>
+  </li>
+  <li>
+    <a href="https://pca.st/62b96qrx">Pocket Casts</a>
+  </li>
+  <li>
+    <a href="https://open.spotify.com/show/41mwqxPH4rKRWL1aLp2M8S">Spotify</a>
+  </li>
+  <li>
+    <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9rcmFjaGJhdS5jb20vZmVlZC8">
+    Google Podcasts
+    </a>
+  </li>
+</ul>
+</footer>

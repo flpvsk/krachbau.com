@@ -5,6 +5,7 @@ const music = import('music-metadata');
 const prettydata = require('pretty-data');
 
 module.exports = function main(config) {
+  config.addPassthroughCopy('src/styles');
   config.addPassthroughCopy('src/images');
   config.addPassthroughCopy('src/{episodes}/**/*.!(md)');
 

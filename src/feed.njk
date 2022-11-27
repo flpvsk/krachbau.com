@@ -46,10 +46,10 @@ permalink: feed/index.xml
 
   {% set episodeDescription %}
     {% if episode.data.guests.length === 1 %}
-    <h2>Guest</h2>
+    <h3>Guest</h3>
     {% endif %}
     {% if episode.data.guests.length > 1 %}
-    <h2>Guests</h2>
+    <h3>Guests</h3>
     {% endif %}
     {% if episode.data.guests.length >= 1 %}
     <ul>
@@ -59,7 +59,7 @@ permalink: feed/index.xml
     </ul>
     {% endif %}
 
-    <h2>Chapters</h2>
+    <h3>Chapters</h3>
     {% if episode.data.chapters %}
       <ul>
         {%- for chapter in episode.data.chapters -%}
