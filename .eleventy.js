@@ -34,7 +34,7 @@ module.exports = function main(config) {
   config.addFilter('enDate', (value) => {
     return value.toLocaleString('en', {
       year: 'numeric',
-      month: 'long',
+      month: 'short',
       day: 'numeric'
     });
   });

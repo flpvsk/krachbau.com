@@ -32,7 +32,6 @@ permalink: feed/index.xml
 
 {%- for episode in collections.episode | reverse -%}
 
-  {% set date = episode.date | enDate %}
   {% set links %}
     <p>
       Hosted by Andrey Brot, recorded at Pedal Markt in Berlin.
