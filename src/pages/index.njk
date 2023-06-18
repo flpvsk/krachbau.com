@@ -39,7 +39,7 @@ musicians. Produced by
   {%- for episode in collections.episode | reverse -%}
     <li>
       <a href="{{ episode.url }}">{{ episode.data.title }} –
-      {{ episode.date | enDate }}
+      <span class="_nobr">{{ episode.date | enDate }}</span>
       </a>
     </li>
   {%- endfor -%}
